@@ -27,7 +27,7 @@ plot(my_data$Time, my_data$Sub_metering_1, col = "azure4", xlab = "", ylab = "En
 lines(my_data$Time, my_data$Sub_metering_2, col = "red")
 lines(my_data$Time, my_data$Sub_metering_3, col = "blue")
 legend("topright",col = c("azure4","red","blue"),legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"),lty = 1,text.font = 2, 
-       bty = "n",cex = 0.8)
+       bty = "n", xjust = 1)
 
 # 3rd subplot: voltage vs datetime
 

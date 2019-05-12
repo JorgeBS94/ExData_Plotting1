@@ -2,7 +2,7 @@
 
 #### Load the data and manipulate it 
 #To run this code, we must be in the unzipped assignment folder containing the file "household_power_consumption.txt"
-
+png(filename="plot3.png")
 Sys.setlocale("LC_TIME", "English")
 data <- read.csv(file="household_power_consumption.txt", sep=";", header= TRUE, na.strings=c("?"))
 head(data) #Visualise the first rows of the dataset
@@ -19,6 +19,4 @@ lines(my_data$Time, my_data$Sub_metering_2, col = "red")
 lines(my_data$Time, my_data$Sub_metering_3, col = "blue")
 legend("topright",col = c("azure4","red","blue"),legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"),lty = 1,text.font = 2)
 
-#We save the image to png
-dev.copy (png, file = "plot3.png",width = 480, height = 480, units = "px")
 dev.off()

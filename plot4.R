@@ -11,14 +11,14 @@ data$Time <- strptime(paste(data$Date,data$Time),"%Y-%m-%d %H:%M:%S")
 my_data <- subset(data, Date == "2007-02-01" | Date == "2007-02-02")
 
 #### PLOT 4: 
-
+png(filename="plot4.png")
 par(mfcol = c(2,2), mar = c(4,4,4,2), oma = c(2,2,0,1)) #Divide the plotting screen into 4 spaces. We will fill them by col.
 # In the first column, we have 2 plots we already built, so we recycle our code:
 
 # 1st subplot: Global active power vs datetime
 
-hist(my_data$Global_active_power, main = "", col = "red",xlab = "Global Active Power (kilowatts)", 
-     ylab = "Frequency", font.lab = 2, font.axis = 2)
+plot(my_data$Time, my_data$Global_active_power, xlab = "", ylab = "Global Active Power", type = "l",
+     font.lab = 2, font.axis = 2)
 
 # 2nd subplot: Energy submetering vs datetime
 
@@ -36,7 +36,4 @@ plot(my_data$Time, my_data$Voltage, type = "l", xlab = "datetime", ylab = "Volta
 # 4th subplot: global reactive power vs datetime
 
 plot(my_data$Time, my_data$Global_reactive_power, type = "l", xlab = "datetime", ylab = "Global_reactive_power")
-
-#We save the image to png
-dev.copy (png, file = "plot4.png",width = 480, height = 480, units = "px")
 dev.off()
